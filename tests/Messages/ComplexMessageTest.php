@@ -66,7 +66,7 @@ class ComplexMessageTest extends \Mailgun\Tests\MailgunTestCase
                 'filePath' => 'tests/TestAssets/mailgun_icon1.png',
               ],
               [
-                'remoteName' => 'mailgun_icon2.png',
+                'filename' => 'mailgun_icon2.png',
                 'filePath' => 'tests/TestAssets/mailgun_icon2.png',
               ],
             ],
