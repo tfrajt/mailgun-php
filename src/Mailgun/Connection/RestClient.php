@@ -291,15 +291,15 @@ class RestClient
 
         if (is_array($filePath) && isset($filePath['fileContent'])) {
             // File from memory
-			// Due to the backward compatibility we are comparing against old id - 'remoteName'; as well as new one - 'filename'.
-            $filename = ( array_key_exists( 'remoteName', $filePath) ? $filePath['remoteName'] : $filePath['filename']);
+			$filename = $filePath['filename'];
             $resource = fopen('php://temp', 'r+');
             fwrite($resource, $filePath['fileContent']);
             rewind($resource);
         } else {
             // Backward compatibility code
             if (is_array($filePath) && isset($filePath['filePath'])) {
-                $filename = $filePath['filename'];
+				// Due to the backward compatibility we are comparing against old id - 'remoteName'; as well as new one - 'filename'.
+                $filename = ( array_key_exists( 'remoteName', $filePath) ? $filePath['remoteName'] : $filePath['filename']);
                 $filePath = $filePath['filePath'];
             }
 
